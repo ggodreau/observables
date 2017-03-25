@@ -32,19 +32,25 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/Rx'], function(export
                     var search = this.form.find('search');
                     search.valueChanges
                         .subscribe(function (x) { return console.log(x); });
-                    var startDates = [];
-                    var startDate = new Date(); //assuming today for simplicity
-                    for (var day = -2; day <= 2; day++) {
-                        var date = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + day);
-                        startDates.push(date);
-                    }
-                    Rx_1.Observable
-                        .fromArray(startDates)
-                        .map(function (date) {
-                        console.log("Getting deals for date: " + date);
-                        return [1, 2, 3];
-                    })
-                        .subscribe(function (x) { return console.log(x); });
+                    //        var startDates = [];
+                    //        var startDate = new Date(); //assuming today for simplicity
+                    //
+                    //        for (var day = -2; day <=2; day++) {
+                    //            var date = new Date(
+                    //                startDate.getFullYear(),
+                    //                startDate.getMonth(),
+                    //                startDate.getDate() + day);
+                    //                startDates.push(date);
+                    //        }
+                    //
+                    //        Observable
+                    //            .fromArray(startDates)
+                    //            .map(date => {
+                    //                console.log("Getting deals for date: " + date)
+                    //                return [1, 2, 3];
+                    //            })
+                    //
+                    //            .subscribe(x => console.log(x));
                     //        var observable = Observable.interval(15000);
                     //        observable.flatMap(x => {
                     //            console.log("calling server:");
@@ -72,16 +78,28 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/Rx'], function(export
                     //            x => console.log(x),
                     //            error => console.error(error)
                     //        );
-                    var counter = 0;
-                    var gregObservable = Rx_1.Observable.interval(3000);
-                    gregObservable.subscribe(function (x) { return console.log(x); }, console.log("wth"));
-                    var ajaxCall = Rx_1.Observable.of('url')
-                        .flatMap(function () {
-                        if (++counter < 2)
-                            return Rx_1.Observable.throw(new Error("Request failed!"));
-                        return Rx_1.Observable.of([1, 2, 3]);
-                    });
-                    ajaxCall.retry().subscribe(function (x) { return console.log(x); }, function (error) { return console.error(error); });
+                    //        var counter = 0;
+                    //
+                    //        var gregObservable = Observable.interval(3000);
+                    //        gregObservable.subscribe(
+                    //            x => console.log(x),
+                    //            console.log("wth"));
+                    //
+                    //
+                    //        var ajaxCall = Observable.of('url')
+                    //            .flatMap(() => {
+                    //                if (++counter < 2)
+                    //                    return Observable.throw(new Error("Request failed!"));
+                    //                return Observable.of([1, 2, 3]);
+                    //            })
+                    //
+                    //        ajaxCall.retry().subscribe(
+                    //            x => console.log(x),
+                    //            error => console.error(error)
+                    //        );
+                    var remoteDataStream = Rx_1.Observable.throw(new Error("something went wrang!"));
+                    remoteDataStream
+                        .subscribe(function (x) { return console.log(x); });
                 }
                 AppComponent = __decorate([
                     core_1.Component({

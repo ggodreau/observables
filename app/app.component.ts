@@ -29,25 +29,25 @@ export class AppComponent {
 //            .debounceTime(400)
             .subscribe(x => console.log(x));
 
-        var startDates = [];
-        var startDate = new Date(); //assuming today for simplicity
-
-        for (var day = -2; day <=2; day++) {
-            var date = new Date(
-                startDate.getFullYear(),
-                startDate.getMonth(),
-                startDate.getDate() + day);
-                startDates.push(date);
-        }
-
-        Observable
-            .fromArray(startDates)
-            .map(date => {
-                console.log("Getting deals for date: " + date)
-                return [1, 2, 3];
-            })
-
-            .subscribe(x => console.log(x));
+//        var startDates = [];
+//        var startDate = new Date(); //assuming today for simplicity
+//
+//        for (var day = -2; day <=2; day++) {
+//            var date = new Date(
+//                startDate.getFullYear(),
+//                startDate.getMonth(),
+//                startDate.getDate() + day);
+//                startDates.push(date);
+//        }
+//
+//        Observable
+//            .fromArray(startDates)
+//            .map(date => {
+//                console.log("Getting deals for date: " + date)
+//                return [1, 2, 3];
+//            })
+//
+//            .subscribe(x => console.log(x));
 
 //        var observable = Observable.interval(15000);
 //        observable.flatMap(x => {
@@ -79,25 +79,34 @@ export class AppComponent {
 //            error => console.error(error)
 //        );
 
-        var counter = 0;
+//        var counter = 0;
+//
+//        var gregObservable = Observable.interval(3000);
+//        gregObservable.subscribe(
+//            x => console.log(x),
+//            console.log("wth"));
+//
+//
+//        var ajaxCall = Observable.of('url')
+//            .flatMap(() => {
+//                if (++counter < 2)
+//                    return Observable.throw(new Error("Request failed!"));
+//                return Observable.of([1, 2, 3]);
+//            })
+//
+//        ajaxCall.retry().subscribe(
+//            x => console.log(x),
+//            error => console.error(error)
+//        );
 
-        var gregObservable = Observable.interval(3000);
-        gregObservable.subscribe(
-            x => console.log(x),
-            console.log("wth"));
+        var remoteDataStream = Observable.throw(new Error("something went wrang!"));
 
-
-        var ajaxCall = Observable.of('url')
-            .flatMap(() => {
-                if (++counter < 2)
-                    return Observable.throw(new Error("Request failed!"));
-                return Observable.of([1, 2, 3]);
-            })
-
-        ajaxCall.retry().subscribe(
-            x => console.log(x),
-            error => console.error(error)
-        );
+        remoteDataStream
+//            .catch(err => {
+//                var localDataStream = Observable.of([1, 2, 3]);
+//                return localDataStream
+//            })
+            .subscribe(x => console.log(x));
 
 
     }
