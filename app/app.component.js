@@ -45,6 +45,14 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/Rx'], function(export
                         return [1, 2, 3];
                     })
                         .subscribe(function (x) { return console.log(x); });
+                    var observable = Rx_1.Observable.interval(15000);
+                    observable.flatMap(function (x) {
+                        console.log("calling server:");
+                        return Rx_1.Observable.of([1, 2, 3]);
+                    })
+                        .subscribe(function (x) { return console.log(x); });
+                    //        observable.subscribe(x => console.log(x));
+                    //        console.log("observable = ", observable);
                 }
                 AppComponent = __decorate([
                     core_1.Component({

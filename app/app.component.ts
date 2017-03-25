@@ -49,5 +49,12 @@ export class AppComponent {
 
             .subscribe(x => console.log(x));
 
+        var observable = Observable.interval(15000);
+        observable.flatMap(x => {
+            console.log("calling server:");
+            return Observable.of([1, 2, 3]);
+        })
+        .subscribe(x => console.log(x));
+
     }
 }
