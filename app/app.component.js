@@ -97,9 +97,19 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/Rx'], function(export
                     //            x => console.log(x),
                     //            error => console.error(error)
                     //        );
-                    var remoteDataStream = Rx_1.Observable.throw(new Error("something went wrang!"));
+                    //        var remoteDataStream = Observable.throw(new Error("something went wrang!"));
+                    //        var remoteDataStream = Observable.of([4, 5, 6]);
+                    //
+                    //        remoteDataStream
+                    //            .catch(err => {
+                    //                var localDataStream = Observable.of([1, 2, 3]);
+                    //                return localDataStream
+                    //            })
+                    //            .subscribe(x => console.log(x));
+                    var remoteDataStream = Rx_1.Observable.of([1, 2, 3]).delay(10000);
                     remoteDataStream
-                        .subscribe(function (x) { return console.log(x); });
+                        .timeout(5000)
+                        .subscribe(function (x) { return console.log(x); }, function (error) { return console.log(error); });
                 }
                 AppComponent = __decorate([
                     core_1.Component({

@@ -99,15 +99,25 @@ export class AppComponent {
 //            error => console.error(error)
 //        );
 
-        var remoteDataStream = Observable.throw(new Error("something went wrang!"));
+//        var remoteDataStream = Observable.throw(new Error("something went wrang!"));
 
-        remoteDataStream
+//        var remoteDataStream = Observable.of([4, 5, 6]);
+//
+//        remoteDataStream
 //            .catch(err => {
 //                var localDataStream = Observable.of([1, 2, 3]);
 //                return localDataStream
 //            })
-            .subscribe(x => console.log(x));
+//            .subscribe(x => console.log(x));
 
+        var remoteDataStream = Observable.of([1, 2, 3]).delay(10000);
+
+        remoteDataStream
+            .timeout(5000)
+            .subscribe(
+                x => console.log(x)
+                error => console.log(error)
+            );
 
     }
 }
