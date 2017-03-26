@@ -110,14 +110,23 @@ export class AppComponent {
 //            })
 //            .subscribe(x => console.log(x));
 
-        var remoteDataStream = Observable.of([1, 2, 3]).delay(10000);
+//        var remoteDataStream = Observable.of([1, 2, 3]).delay(10000);
+//
+//        remoteDataStream
+//            .timeout(5000)
+//            .subscribe(
+//                x => console.log(x)
+//                error => console.log(error)
+//            );
 
-        remoteDataStream
-            .timeout(5000)
-            .subscribe(
-                x => console.log(x)
-                error => console.log(error)
-            );
+//        var observable = Observable.throw(new Error("feck!"));
+        var observable = Observable.fromArray([1, 2, 3]);
+
+        observable.subscribe(
+            x => console.log(x)
+            error => console.log(error)
+            () => console.log("completed")
+        );
 
     }
 }

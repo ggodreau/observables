@@ -106,10 +106,17 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/Rx'], function(export
                     //                return localDataStream
                     //            })
                     //            .subscribe(x => console.log(x));
-                    var remoteDataStream = Rx_1.Observable.of([1, 2, 3]).delay(10000);
-                    remoteDataStream
-                        .timeout(5000)
-                        .subscribe(function (x) { return console.log(x); }, function (error) { return console.log(error); });
+                    //        var remoteDataStream = Observable.of([1, 2, 3]).delay(10000);
+                    //
+                    //        remoteDataStream
+                    //            .timeout(5000)
+                    //            .subscribe(
+                    //                x => console.log(x)
+                    //                error => console.log(error)
+                    //            );
+                    //        var observable = Observable.throw(new Error("feck!"));
+                    var observable = Rx_1.Observable.fromArray([1, 2, 3]);
+                    observable.subscribe(function (x) { return console.log(x); }, function (error) { return console.log(error)(); }, console.log("completed"));
                 }
                 AppComponent = __decorate([
                     core_1.Component({
