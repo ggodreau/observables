@@ -145,12 +145,20 @@ export class AppComponent {
 //                () => console.log("completed")
 //            );
 
+//        Observable.fromArray([1, 2, 3])
+//            .subscribe(
+//                x => console.log(x),
+//                error => console.error(error),
+//                () => console.log("completed")
+//            );
+
+//        Observable.fromArray(['b', 'bo', 'boo', 'book'])
+//            .filter(x => x.length > 3)
+//            .subscribe(x => console.log(x));
+
         Observable.fromArray([1, 2, 3])
-            .subscribe(
-                x => console.log(x),
-                error => console.error(error),
-                () => console.log("completed")
-            );
+            .flatMap(x => Observable.of(['a', 'b', 'c']))
+            .subscribe(x => console.log(x));
 
     }
 }

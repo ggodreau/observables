@@ -137,8 +137,18 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/Rx'], function(export
                     //                error => console.error(error),
                     //                () => console.log("completed")
                     //            );
+                    //        Observable.fromArray([1, 2, 3])
+                    //            .subscribe(
+                    //                x => console.log(x),
+                    //                error => console.error(error),
+                    //                () => console.log("completed")
+                    //            );
+                    //        Observable.fromArray(['b', 'bo', 'boo', 'book'])
+                    //            .filter(x => x.length > 3)
+                    //            .subscribe(x => console.log(x));
                     Rx_1.Observable.fromArray([1, 2, 3])
-                        .subscribe(function (x) { return console.log(x); }, function (error) { return console.error(error); }, function () { return console.log("completed"); });
+                        .flatMap(function (x) { return Rx_1.Observable.of(['a', 'b', 'c']); })
+                        .subscribe(function (x) { return console.log(x); });
                 }
                 AppComponent = __decorate([
                     core_1.Component({
