@@ -115,8 +115,30 @@ System.register(['angular2/core', 'angular2/common', 'rxjs/Rx'], function(export
                     //                error => console.log(error)
                     //            );
                     //        var observable = Observable.throw(new Error("feck!"));
-                    var observable = Rx_1.Observable.fromArray([1, 2, 3]);
-                    observable.subscribe(function (x) { return console.log(x); }, function (error) { return console.log(error)(); }, console.log("completed"));
+                    //        var observable = Observable.fromArray([1, 2, 3]);
+                    //
+                    //        observable.subscribe(
+                    //            x => console.log(x)
+                    //            error => console.log(error)
+                    //            () => console.log("completed")
+                    //        );
+                    //        var observable = Observable.of(1);
+                    //
+                    //        observable
+                    //            .interval(1500)
+                    //            .subscribe(
+                    //                x => console.log(x)
+                    //            )
+                    //        var observable = Observable.fromArray([0, 2, 3]);
+                    //
+                    //        observable
+                    //            .subscribe(
+                    //                x => console.log(x),
+                    //                error => console.error(error),
+                    //                () => console.log("completed")
+                    //            );
+                    Rx_1.Observable.fromArray([1, 2, 3])
+                        .subscribe(function (x) { return console.log(x); }, function (error) { return console.error(error); }, function () { return console.log("completed"); });
                 }
                 AppComponent = __decorate([
                     core_1.Component({

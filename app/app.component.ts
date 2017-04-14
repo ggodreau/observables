@@ -120,13 +120,37 @@ export class AppComponent {
 //            );
 
 //        var observable = Observable.throw(new Error("feck!"));
-        var observable = Observable.fromArray([1, 2, 3]);
+//        var observable = Observable.fromArray([1, 2, 3]);
+//
+//        observable.subscribe(
+//            x => console.log(x)
+//            error => console.log(error)
+//            () => console.log("completed")
+//        );
 
-        observable.subscribe(
-            x => console.log(x)
-            error => console.log(error)
-            () => console.log("completed")
-        );
+//        var observable = Observable.of(1);
+//
+//        observable
+//            .interval(1500)
+//            .subscribe(
+//                x => console.log(x)
+//            )
+
+//        var observable = Observable.fromArray([0, 2, 3]);
+//
+//        observable
+//            .subscribe(
+//                x => console.log(x),
+//                error => console.error(error),
+//                () => console.log("completed")
+//            );
+
+        Observable.fromArray([1, 2, 3])
+            .subscribe(
+                x => console.log(x),
+                error => console.error(error),
+                () => console.log("completed")
+            );
 
     }
 }
